@@ -1,0 +1,16 @@
+.container {
+    margin-left: 1px;
+}
+.navbar-brand {
+    padding-top: 12px;
+}
+
+.form {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.form-label {
+    text-align: right;
+}
