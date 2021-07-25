@@ -15,7 +15,7 @@
     </div>
 </nav>
 
-<form class="form">
+<form class="form" method="post" action="/titulos">
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Novo título</h5>
@@ -24,30 +24,30 @@
             <div class="row mb-3">
                 <label for="descricao" class="col-sm-2 form-label">Descrição</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="descricao" placeholder="Descrição">
+                    <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="dataVencimento" class="col-sm-2 form-label">Data de Vencimento</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento">
+                    <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento" name="dataVencimento">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="valor" class="col-sm-2 form-label">Valor</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="valor" placeholder="Valor">
+                    <input type="text" class="form-control" id="valor" placeholder="Valor" name="valor">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="status" class="col-sm-2 form-label">Status</label>
                 <div class="col-sm-2">
-                    <select class="form-select" aria-label="Status" id="status">
-                        <option>Recebido</option>
-                        <option>Pendente</option>
+                    <select class="form-select" aria-label="Status" id="status" name="status">
+                        <option value="PENDENTE">Pendente</option>
+                        <option value="RECEBIDO">Recebido</option>
                     </select>
                 </div>
             </div>
