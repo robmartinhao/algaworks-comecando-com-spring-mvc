@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de título</title>
@@ -16,6 +18,12 @@
 </nav>
 
 <form class="form" method="post" action="/titulos">
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
+        <span th:text="${mensagem}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Novo título</h5>
@@ -31,7 +39,8 @@
             <div class="row mb-3">
                 <label for="dataVencimento" class="col-sm-2 form-label">Data de Vencimento</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento" name="dataVencimento">
+                    <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento"
+                           name="dataVencimento">
                 </div>
             </div>
 
@@ -46,8 +55,7 @@
                 <label for="status" class="col-sm-2 form-label">Status</label>
                 <div class="col-sm-2">
                     <select class="form-select" aria-label="Status" id="status" name="status">
-                        <option value="PENDENTE">Pendente</option>
-                        <option value="RECEBIDO">Recebido</option>
+                        <option th:each="status: ${todosStatus}" th:value="${status}" th:text="${status.descricao}"></option>
                     </select>
                 </div>
             </div>
