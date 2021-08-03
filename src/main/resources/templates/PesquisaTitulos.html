@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="LayoutPadrao">
 <head>
-    <meta charset="UTF-8">
     <title>Pesquisa de título</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/stylle.css"/>
 </head>
-<body>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="/images/logo-algaworks.png" alt="AlgaWorks" width="135" height="30">
-        </a>
-    </div>
-</nav>
 
-<div class="card">
-    <div class="card-header">
-        <h5 class="card-title">Pesquisa de títulos</h5>
+<section layout:fragment="conteudo">
+    <div class="card">
+        <div class="card-header">
+            <div class="clearfix">
+                <h5 class="card-title aw-titulo-panel">Pesquisa de títulos</h5>
+                <a class="btn btn-link aw-link-panel" href="/titulos/novo">Novo título</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-center col-md-1">#</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col" class="text-center col-md-2">Data de vencimento</th>
+                    <th scope="col" class="text-right col-md-2">Valor</th>
+                    <th scope="col" class="text-center col-md-2">Status</th>
+                    <th scope="col" class="col-md-1"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="6">Nenhum Título foi encontrado</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="card-body">
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th scope="col" class="text-center col-md-1">#</th>
-                <th scope="col">Descrição</th>
-                <th scope="col" class="text-center col-md-2">Data de vencimento</th>
-                <th scope="col" class="text-right col-md-2">Valor</th>
-                <th scope="col" class="text-center col-md-2">Status</th>
-                <th scope="col" class="col-md-1"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td colspan="6">Nenhum Título foi encontrado</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="/js/jquery-3.6.0.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-</body>
+</section>
 </html>

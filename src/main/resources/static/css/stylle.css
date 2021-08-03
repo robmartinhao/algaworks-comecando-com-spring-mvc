@@ -11,6 +11,12 @@
     margin-right: 20px;
 }
 
+.card {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .form-label {
     text-align: right;
 }
@@ -19,3 +25,14 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.aw-link-panel {
+    float: right;
+    padding: 0px;
+}
+
+.aw-titulo-panel {
+    float: left;
+    padding-top: 2px;
+}
+

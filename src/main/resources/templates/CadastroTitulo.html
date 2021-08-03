@@ -1,73 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="LayoutPadrao">
+
 <head>
-    <meta charset="UTF-8">
     <title>Cadastro de título</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/stylle.css"/>
 </head>
-<body>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="/images/logo-algaworks.png" alt="AlgaWorks" width="135" height="30">
-        </a>
-    </div>
-</nav>
 
-<form class="form" method="post" action="/titulos">
+<section layout:fragment="conteudo">
 
-    <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
-        <span th:text="${mensagem}"></span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    <form class="form" method="post" action="/titulos">
 
-    <div class="card">
-        <div class="card-header">
-            <h5 class="card-title">Novo título</h5>
+        <div class="alert alert-success alert-dismissible fade show" role="alert"
+             th:if="${!#strings.isEmpty(mensagem)}">
+            <span th:text="${mensagem}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="card-body">
-            <div class="row mb-3">
-                <label for="descricao" class="col-sm-2 form-label">Descrição</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="clearfix">
+                    <h5 class="card-title aw-titulo-panel">Novo título</h5>
+                    <a class="btn btn-link aw-link-panel" href="/titulos">Voltar para pesquisa</a>
                 </div>
             </div>
-
-            <div class="row mb-3">
-                <label for="dataVencimento" class="col-sm-2 form-label">Data de Vencimento</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento"
-                           name="dataVencimento">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <label for="descricao" class="col-sm-2 form-label">Descrição</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb-3">
-                <label for="valor" class="col-sm-2 form-label">Valor</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="valor" placeholder="Valor" name="valor">
+                <div class="row mb-3">
+                    <label for="dataVencimento" class="col-sm-2 form-label">Data de Vencimento</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento"
+                               name="dataVencimento">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb-3">
-                <label for="status" class="col-sm-2 form-label">Status</label>
-                <div class="col-sm-2">
-                    <select class="form-select" aria-label="Status" id="status" name="status">
-                        <option th:each="status: ${todosStatus}" th:value="${status}" th:text="${status.descricao}"></option>
-                    </select>
+                <div class="row mb-3">
+                    <label for="valor" class="col-sm-2 form-label">Valor</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="valor" placeholder="Valor" name="valor">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-2 offset-md-2">
-                <button type="submit" class="btn btn-primary">Salvar</button>
-            </div>
+                <div class="row mb-3">
+                    <label for="status" class="col-sm-2 form-label">Status</label>
+                    <div class="col-sm-2">
+                        <select class="form-select" aria-label="Status" id="status" name="status">
+                            <option th:each="status: ${todosStatus}" th:value="${status}"
+                                    th:text="${status.descricao}"></option>
+                        </select>
+                    </div>
+                </div>
 
+                <div class="col-sm-2 offset-md-2">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+
+            </div>
         </div>
-    </div>
-</form>
-
-<script src="/js/bootstrap.min.js"></script>
-</body>
+    </form>
+</section>
 </html>
