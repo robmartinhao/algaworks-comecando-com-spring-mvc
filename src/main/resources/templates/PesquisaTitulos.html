@@ -35,8 +35,8 @@
                     <td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
                     <td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
                     <td class="text-center">
-                        <div role="alert" class="alert" th:text="${titulo.status.descricao}"
-                            th:classappend="${titulo.pendente ? 'alert alert-danger' : 'alert alert-success'}"></div>
+                        <div class="d-inline p-2 " th:text="${titulo.status.descricao}"
+                            th:classappend="${titulo.pendente ? 'bg-danger text-white' : 'bg-success text-white'}"></div>
                     </td>
                     <td class="text-center"></td>
                 </tr>
