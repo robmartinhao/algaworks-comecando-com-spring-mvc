@@ -11,13 +11,9 @@
 
 <section layout:fragment="conteudo">
 
-    <form class="form" method="post" action="/titulos">
+    <form class="form" method="post" action="/titulos" th:object="${titulo}">
 
-        <div class="alert alert-success alert-dismissible fade show" role="alert"
-             th:if="${!#strings.isEmpty(mensagem)}">
-            <span th:text="${mensagem}"></span>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <div th:replace="Mensagem"></div>
 
         <div class="card">
             <div class="card-header">
@@ -41,8 +37,7 @@
                                name="dataVencimento">
                     </div>
                 </div>
-
-                <div class="row mb-3">
+                <div class="row mb-3" th:classappend="${#fields.hasErrors('valor')} ? has-error">
                     <label for="valor" class="col-sm-2 form-label">Valor</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control" id="valor" placeholder="Valor" name="valor">
