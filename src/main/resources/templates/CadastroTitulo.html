@@ -26,7 +26,7 @@
                 <div class="row mb-3">
                     <label for="descricao" class="col-sm-2 form-label">Descrição</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+                        <input type="text" class="form-control" id="descricao" placeholder="Descrição" th:field="*{descricao}">
                     </div>
                 </div>
 
@@ -34,13 +34,13 @@
                     <label for="dataVencimento" class="col-sm-2 form-label">Data de Vencimento</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento"
-                               name="dataVencimento">
+                               th:field="*{dataVencimento}">
                     </div>
                 </div>
                 <div class="row mb-3" th:classappend="${#fields.hasErrors('valor')} ? has-error">
                     <label for="valor" class="col-sm-2 form-label">Valor</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="valor" placeholder="Valor" name="valor">
+                        <input type="text" class="form-control" id="valor" placeholder="Valor" th:field="*{valor}">
                     </div>
                 </div>
 
