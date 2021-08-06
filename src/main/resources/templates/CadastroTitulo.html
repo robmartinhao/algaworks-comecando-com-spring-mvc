@@ -23,6 +23,9 @@
                 </div>
             </div>
             <div class="card-body">
+
+                <input type="hidden" th:field="*{codigo}"/>
+
                 <div class="row mb-3">
                     <label for="descricao" class="col-sm-2 form-label">Descrição</label>
                     <div class="col-sm-4">
@@ -37,7 +40,7 @@
                                th:field="*{dataVencimento}">
                     </div>
                 </div>
-                <div class="row mb-3" th:classappend="${#fields.hasErrors('valor')} ? has-error">
+                <div class="row mb-3">
                     <label for="valor" class="col-sm-2 form-label">Valor</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control" id="valor" placeholder="Valor" th:field="*{valor}">
