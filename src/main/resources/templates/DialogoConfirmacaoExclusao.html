@@ -7,7 +7,7 @@
 <div class="modal" tabindex="-1" id="confirmacaoExclusaoModal">
     <div class="modal-dialog">
 
-        <form action="/titulos" th:method="DELETE">
+        <form th:attr="data-url-base='/titulos'" th:method="DELETE">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Você tem certeza?</h5>
