@@ -37,8 +37,9 @@
                 <div class="row mb-3">
                     <label for="dataVencimento" class="col-sm-2 form-label">Data de Vencimento</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento"
-                               th:field="*{dataVencimento}">
+                        <input type="text" class="form-control" id="dataVencimento" placeholder="Data de Vencimento" th:field="*{dataVencimento}"
+                               data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
+                               data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom" autocomplete="off">
                     </div>
                 </div>
                 <div class="row mb-3">

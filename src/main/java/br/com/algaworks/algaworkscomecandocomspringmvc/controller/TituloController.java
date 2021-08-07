@@ -4,6 +4,7 @@ import br.com.algaworks.algaworkscomecandocomspringmvc.model.StatusTitulo;
 import br.com.algaworks.algaworkscomecandocomspringmvc.model.Titulo;
 import br.com.algaworks.algaworkscomecandocomspringmvc.repository.Titulos;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -40,8 +41,14 @@ public class TituloController {
         if (errors.hasErrors()) {
             return CADASTRO_VIEW;
         }
-        titulos.save(titulo);
-        attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
+        try{
+            titulos.save(titulo);
+            attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
+        } catch (DataIntegrityViolationException e) {
+            errors.rejectValue("dataVencimento", null, "Formato de data inválido");
+            return CADASTRO_VIEW;
+        }
+
         return "redirect:/titulos/novo";
     }
 
