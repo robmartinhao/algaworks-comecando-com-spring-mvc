@@ -3,6 +3,7 @@ package br.com.algaworks.algaworkscomecandocomspringmvc.controller;
 import br.com.algaworks.algaworkscomecandocomspringmvc.model.StatusTitulo;
 import br.com.algaworks.algaworkscomecandocomspringmvc.model.Titulo;
 import br.com.algaworks.algaworkscomecandocomspringmvc.repository.Titulos;
+import br.com.algaworks.algaworkscomecandocomspringmvc.service.CadastroTituloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,9 @@ public class TituloController {
     @Autowired
     private Titulos titulos;
 
+    @Autowired
+    private CadastroTituloService cadastroTituloService;
+
     @RequestMapping("/novo")
     public ModelAndView novo() {
         ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
@@ -42,7 +46,7 @@ public class TituloController {
             return CADASTRO_VIEW;
         }
         try{
-            titulos.save(titulo);
+            cadastroTituloService.salvar(titulo);
             attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
         } catch (DataIntegrityViolationException e) {
             errors.rejectValue("dataVencimento", null, "Formato de data inválido");
@@ -70,7 +74,7 @@ public class TituloController {
 
     @RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
     public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-        titulos.deleteById(codigo);
+        cadastroTituloService.excluir(codigo);
         attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
         return "redirect:/titulos";
     }
