@@ -23,7 +23,21 @@ $(function () {
         var botaoReceber = $(event.currentTarget);
         var urlReceber = botaoReceber.attr('href');
 
-        console.log('urlReceber', urlReceber);
+        var response = $.ajax({
+            url: urlReceber,
+            type: 'PUT'
+        });
+
+        response.done(function(e){
+            var codigoTitulo = botaoReceber.data('codigo');
+            $('[data-role=' + codigoTitulo + ']').html('<div class="d-inline p-2 bg-success text-white">' + e + '</div>');
+            botaoReceber.hide();
+        });
+
+        response.fail(function(e){
+            console.log(e);
+            alert('Erro ao rebecer cobrança');
+        });
     });
 });
 
