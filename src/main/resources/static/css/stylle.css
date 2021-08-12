@@ -34,3 +34,12 @@
     float: left;
     padding-top: 2px;
 }
+
+.form-pesquisa {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.text-input{
+    width:400px
+}
