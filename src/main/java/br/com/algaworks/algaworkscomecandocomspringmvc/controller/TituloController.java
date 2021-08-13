@@ -2,7 +2,7 @@ package br.com.algaworks.algaworkscomecandocomspringmvc.controller;
 
 import br.com.algaworks.algaworkscomecandocomspringmvc.model.StatusTitulo;
 import br.com.algaworks.algaworkscomecandocomspringmvc.model.Titulo;
-import br.com.algaworks.algaworkscomecandocomspringmvc.repository.Titulos;
+import br.com.algaworks.algaworkscomecandocomspringmvc.repository.filter.TituloFilter;
 import br.com.algaworks.algaworkscomecandocomspringmvc.service.CadastroTituloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -21,9 +21,6 @@ import java.util.List;
 public class TituloController {
 
     private static final String CADASTRO_VIEW = "CadastroTitulo";
-
-    @Autowired
-    private Titulos titulos;
 
     @Autowired
     private CadastroTituloService cadastroTituloService;
@@ -54,16 +51,15 @@ public class TituloController {
     }
 
     @RequestMapping
-    public ModelAndView pesquisar() {
-        List<Titulo> todosTitulos = titulos.findAll();
+    public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
+        List<Titulo> todosTitulos = cadastroTituloService.filtrar(filtro);
         ModelAndView mv = new ModelAndView("PesquisaTitulos");
         mv.addObject("titulos", todosTitulos);
         return mv;
     }
 
     @RequestMapping("{codigo}")
-    public ModelAndView edicao(@PathVariable Long codigo) {
-        Titulo titulo = titulos.findById(codigo).orElse(null);
+    public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
         ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
         mv.addObject(titulo);
         return mv;

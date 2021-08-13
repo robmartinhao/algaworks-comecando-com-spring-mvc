@@ -3,9 +3,12 @@ package br.com.algaworks.algaworkscomecandocomspringmvc.service;
 import br.com.algaworks.algaworkscomecandocomspringmvc.model.StatusTitulo;
 import br.com.algaworks.algaworkscomecandocomspringmvc.model.Titulo;
 import br.com.algaworks.algaworkscomecandocomspringmvc.repository.Titulos;
+import br.com.algaworks.algaworkscomecandocomspringmvc.repository.filter.TituloFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CadastroTituloService {
@@ -31,5 +34,10 @@ public class CadastroTituloService {
         titulos.save(titulo);
 
         return StatusTitulo.RECEBIDO.getDescricao();
+    }
+
+    public List<Titulo> filtrar(TituloFilter filtro) {
+        String descricao = filtro.getDescricao() == null ? "" : filtro.getDescricao();
+        return titulos.findByDescricaoContaining(descricao);
     }
 }
