@@ -11,7 +11,7 @@
 
 <section layout:fragment="conteudo">
 
-    <form class="form" method="post" action="/titulos" th:object="${titulo}">
+    <form class="form" method="post" th:action="@{/titulos}" th:object="${titulo}">
 
         <div th:replace="MensagemGeral"></div>
         <div th:replace="MensagemErro"></div>
@@ -20,7 +20,7 @@
             <div class="card-header">
                 <div class="clearfix">
                     <h5 class="card-title aw-titulo-panel">Novo título</h5>
-                    <a class="btn btn-link aw-link-panel" href="/titulos">Voltar para pesquisa</a>
+                    <a class="btn btn-link aw-link-panel" th:href="@{/titulos}">Voltar para pesquisa</a>
                 </div>
             </div>
             <div class="card-body">

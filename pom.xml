@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.algaworks</groupId>
-	<artifactId>algaworks-comecando-com-spring-mvc</artifactId>
+	<artifactId>cobranca</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>algaworks-comecando-com-spring-mvc</name>
@@ -63,6 +63,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

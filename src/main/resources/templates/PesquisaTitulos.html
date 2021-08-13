@@ -16,12 +16,12 @@
         <div class="card-header">
             <div class="clearfix">
                 <h5 class="card-title aw-titulo-panel">Pesquisa de títulos</h5>
-                <a class="btn btn-link aw-link-panel" href="/titulos/novo">Novo título</a>
+                <a class="btn btn-link aw-link-panel" th:href="@{/titulos/novo}">Novo título</a>
             </div>
         </div>
         <div class="card-body">
 
-            <form method="GET" class="form-horizontal form-pesquisa" action="/titulos" th:object="${filtro}">
+            <form method="GET" class="form-horizontal form-pesquisa" th:action="@{/titulos}" th:object="${filtro}">
                 <div class="form-group">
                     <div class="col-sm-4">
                         <div class="input-group">
